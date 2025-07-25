@@ -1,16 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block main %}
-    <section class="m-16 ml-4">
-        <h1 class="font-expanded text-6xl pt-18 pb-12">
-            {% block heading %}{% endblock %}
-        </h1>
-        <div id="main-content">
-            {% block content %}{% endblock %}
-        </div>
-    </section>
-{% endblock %}
-
 {% block maze %}
     <img src="{{ asset('images/maze.svg') }}" alt="">
 {% endblock %}

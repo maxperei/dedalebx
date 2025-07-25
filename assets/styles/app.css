@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin "../vendor/daisyui/daisyui.index.js" {
+    themes: black --default;
+}
 
 @font-face {
     font-family: 'Zai Olivetti Underwood';
@@ -31,6 +34,7 @@
     --font-sans: "Finder", sans-serif;
     --font-expanded: "Akira Expanded", sans-serif;
     --font-mono: "Zai Olivetti Underwood", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+    --h-logo: 170px;
 }
 
 body {
@@ -64,4 +68,8 @@ li[role=menuitem]:hover a {
 
 #main-content p:first-letter {
     font-family: var(--font-mono), monospace;
+}
+
+#main-content .line-up p:first-letter {
+    font-family: var(--font-sans), sans-serif;
 }

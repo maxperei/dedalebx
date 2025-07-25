@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="black">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Dédale • Bordeaux • Musique expérimentale & arts déviants{% endblock %}</title>
@@ -12,10 +12,10 @@
     {% endblock %}
 </head>
 <body class="h-screen">
-<div class="grid grid-cols-12 gap-4">
+<div class="h-full grid grid-cols-12 gap-4">
     {% block header %}
-        <header role="banner" class="col-span-3 m-16 mr-0">
-            <div class="mb-12">
+        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-0">
+            <div class="lg:mb-12">
                 <a href="{{ path('home') }}">
                     <img
                         src="{{ asset('images/logo.png') }}"
@@ -25,7 +25,7 @@
                     <small class="text-sm whitespace-nowrap">Musique expérimentale <br>& arts déviants</small>
                 </a>
             </div>
-            <nav>
+            <nav class="hidden lg:block">
                 <ul class="flex flex-col space-y-6">
                     <li role="menuitem">
                         <a class="flex items-baseline w-[fit-content]" href="{{ path('page', {'id': 'festival'}) }}">
@@ -54,13 +54,23 @@
         </header>
     {% endblock %}
     {% block body %}
-        <main class="col-span-6 relative">
-            {% block main %}{% endblock %}
+        <main class="col-span-12 sm:col-span-8 lg:col-span-6 relative z-1">
+            <section class="m-6 mb-0 lg:m-16 ml-4">
+                <h1 class="font-expanded text-6xl lg:pt-18 pb-3">
+                    {% block heading %}{% endblock %}
+                </h1>
+                <h3 class="font-mono text-xl pb-12">
+                    {% block subheading %}{% endblock %}
+                </h3>
+                <div id="main-content">
+                    {% block content %}{% endblock %}
+                </div>
+            </section>
         </main>
-        <aside class="w-1/3 min-h-screen min-w-[320px] absolute z-[-1] right-0">
-            <header class="h-full relative">
+        <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95">
+            <header class="h-screen relative overflow-y-auto">
                 {% block maze %}
-                    <img class="h-full" src="{{ asset('images/maze-animated.svg') }}" alt="">
+                    <img src="{{ asset('images/maze-animated.svg') }}" alt="">
                 {% endblock %}
             </header>
             {% block aside %}{% endblock %}

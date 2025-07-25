@@ -1,0 +1,26 @@
+<div class="card card-dash border-base-content bg-base-100 h-64" id="{% block id %}date-19092025{% endblock %}">
+    <div class="card-body lg:indicator w-full">
+        <span class="lg:indicator-item badge badge-primary indicator-center border-base-100 font-expanded text-base">
+            {% block date %}Vendredi 19{% endblock %}
+        </span>
+        <span class="lg:indicator-item badge badge-primary indicator-top indicator-start border-base-100 font-expanded text-base">
+            {% block time %}20h-00h{% endblock %}
+        </span>
+        <span class="lg:indicator-item badge badge-primary indicator-top indicator-end border-base-100 font-expanded text-base">
+            {% block paf %}10€{% endblock %}
+        </span>
+        <div class="space-y-4">
+            {% block content %}
+                <h4 class="font-mono text-sm card-title">{% block venue %}Café pompier • 7 place Pierre Renaudel, 33800 Bordeaux{% endblock %}</h4>
+                <p class="text-base/4">Une soirée d'ouverture sous le signe de l'improvisation et du bruit, où l'accident est maitre et la collision créatrice. Intensité et sensations fortes garanties.</p>
+                <p class="text-base/4">3 piments</p>
+                <ul class="line-up space-y-2">
+                    <li><p class="font-mono text-xs">• Jérôme Noetinger ⨯ Lionel Fernandez •</p> <p class="font-sans"><strong class="kbd">noise</strong> <span class="ml-1">(Bretagne/Isère)</span></p></li>
+                    <li><p class="font-mono text-xs">• Arnaud Rivière •</p> <p class="font-sans"><strong class="kbd">harsh noise</strong> <span class="ml-1">(Paris)</span></p></li>
+                    <li><p class="font-mono text-xs">• Rühland + Michel Doneda •</p> <p class="font-sans"><strong class="kbd">rock expé/free impro</strong> <span class="ml-1">(Bordeaux/Dordogne)</span></p></li>
+                    <li><p class="font-mono text-xs">• Le trou noir •</p> <p class="font-sans"><strong class="kbd">free rock</strong> <span class="ml-1">(Bordeaux)</span></p></li>
+                </ul>
+            {% endblock %}
+        </div>
+    </div>
+</div>
