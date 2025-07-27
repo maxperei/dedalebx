@@ -22,8 +22,8 @@
 
 @font-face {
     font-family: 'Akira Expanded';
-    src: url('../fonts/akira_expanded.woff2') format('woff2'),
-    url('../fonts/akira_expanded.woff') format('woff');
+    src: url('../fonts/AkiraExpanded.woff2') format('woff2'),
+    url('../fonts/AkiraExpanded.woff') format('woff');
     font-weight: 800;
     font-style: normal;
 }
@@ -38,10 +38,13 @@
 }
 
 body {
-    background: var(--color-black) url("../images/background-rotate.jpg");
-    background-size: cover;
     font-family: var(--font-sans), sans-serif;
     color: var(--color-white);
+}
+
+body > div {
+    background: var(--color-black) url("../images/background-rotate.jpg");
+    background-size: cover;
 }
 
 header {
@@ -66,7 +69,8 @@ li[role=menuitem]:hover a {
     bottom: 2px;
 }
 
-#main-content p:first-letter {
+#main-content p:first-letter,
+#main-content .line-up article p:first-letter {
     font-family: var(--font-mono), monospace;
 }
 

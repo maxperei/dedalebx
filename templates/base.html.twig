@@ -14,47 +14,46 @@
 <body class="h-screen">
 <div class="h-full grid grid-cols-12 gap-4">
     {% block header %}
-        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-0">
-            <div class="lg:mb-12">
-                <a href="{{ path('home') }}">
-                    <img
-                        src="{{ asset('images/logo.png') }}"
-                        class="max-w-[290px]"
-                        alt="Logo dédale en écriture manuscrite"
-                    />
-                    <small class="text-sm whitespace-nowrap">Musique expérimentale <br>& arts déviants</small>
-                </a>
+        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3 z-2">
+            <div class="drawer">
+                <input id="main-menu" type="checkbox" class="drawer-toggle" />
+                <div class="drawer-content flex flex-col">
+                    <div class="flex items-start justify-between lg:block lg:mb-12">
+                        <a href="{{ path('home') }}">
+                            <img
+                                src="{{ asset('images/logo.png') }}"
+                                class="max-w-[290px]"
+                                alt="Logo dédale en écriture manuscrite"
+                            />
+                            <small class="text-sm whitespace-nowrap">Musique expérimentale <br>& arts déviants</small>
+                        </a>
+                        <label for="main-menu" class="lg:hidden btn btn-ghost border-dashed hover:border-transparent border-white hover:bg-black swap swap-rotate">
+                            <input type="checkbox" />
+                            <span class="swap-off font-expanded text-base">
+                                menu
+                            </span>
+                            <span class="swap-on font-expanded text-base">
+                                fermer
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="drawer-side">
+                    <label for="main-menu" aria-label="close sidebar" class="drawer-overlay"></label>
+                    <ul class="bg-base-100 min-h-full w-4/5 p-4 space-y-6">
+                        {% include '_menuitems.html.twig' %}
+                    </ul>
+                </div>
             </div>
             <nav class="hidden lg:block">
                 <ul class="flex flex-col space-y-6">
-                    <li role="menuitem">
-                        <a class="flex items-baseline w-[fit-content]" href="{{ path('page', {'id': 'festival'}) }}">
-                            <img
-                                src="{{ asset('images/logo.png') }}"
-                                class="max-w-[100px]"
-                                alt="Menu dédale festival"
-                            />
-                            <span class="font-expanded ml-2">Festival</span>
-                        </a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="{{ path('page', {'id': 'billeterie'}) }}">Billeterie</a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="{{ path('page', {'id': 'prog'}) }}">Programmation</a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="{{ path('page', {'id': 'archive'}) }}">Archives</a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="{{ path('page', {'id': 'contact'}) }}">Contact</a>
-                    </li>
+                    {% include '_menuitems.html.twig' %}
                 </ul>
             </nav>
         </header>
     {% endblock %}
     {% block body %}
-        <main class="col-span-12 sm:col-span-8 lg:col-span-6 relative z-1">
+        <main class="h-screen overflow-auto col-span-12 sm:col-span-8 lg:col-span-6 relative">
             <section class="m-6 mb-0 lg:m-16 ml-4">
                 <h1 class="font-expanded text-6xl lg:pt-18 pb-3">
                     {% block heading %}{% endblock %}
@@ -68,7 +67,7 @@
             </section>
         </main>
         <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95">
-            <header class="h-screen relative overflow-y-auto">
+            <header class="h-screen relative overflow-auto">
                 {% block maze %}
                     <img src="{{ asset('images/maze-animated.svg') }}" alt="">
                 {% endblock %}

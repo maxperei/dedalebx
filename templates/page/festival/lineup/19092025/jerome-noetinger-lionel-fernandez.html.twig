@@ -1,0 +1,32 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/noetinger-fernandez-laurent-orseau.jpg') ~ '" alt="Le duo Jérôme Noetinger et Lionel Fernandez en live - photo signée Laurent Orseau">' %}
+{% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=2605265089/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe>' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="Lionel FERNANDEZ / Jérôme NOETINGER - Instants Chavirés - 27/10/2021" width="100%" height="100%" src="https://www.youtube.com/embed/hCbjAlMJl4c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ bc }}">Bandcamp</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ yt }}">YouTube</button>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Lionel Fernandez, guitare électrique, amplificateur, électroniques.</h2>
+        <h2 class="font-mono text-base">Jérôme Noetinger, Revox B77, cassettes, électroniques.</h2>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Jérôme Noetinger et Lionel Fernandez, soit la rencontre musicale entre deux acteurs importants et intransigeants des
+            musiques expérimentales contemporaines en France. Ce duo a vu le jour dans une soirée du label Premier Sang
+            programmée aux Instants Chavirés dans les années 2010...
+        </p>
+        <p>
+            Une guitare hautement électrifiée, anamorphosée, trouée et salie par toutes sortes d'effets,
+            implose sa rage et son urgence dans les filets magnétiques d'un magnétophone à bandes autant cannibale que destructeur.
+            Musique grasse et acide, moite et caverneuse, comme la rencontre intoxiquée d'une tronçonneuse et d'un micro.
+            Une vraie musique de garage entre cambouis, carrosserie éventrée et alternateur périmé,
+            comme la bande-son arrachée d'un film inédit de Tobe Hooper.
+        </p>
+    </div>
+</article>

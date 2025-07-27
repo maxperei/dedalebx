@@ -1,0 +1,16 @@
+<div class="card card-dash border-base-content bg-base-100" id="date-{% block id %}{% endblock %}">
+    <div class="card-body indicator w-full">
+        <span class="indicator-item badge badge-primary indicator-center border-base-100 font-expanded text-base">
+            {% block date %}{% endblock %}
+        </span>
+        <span class="indicator-item badge badge-primary indicator-middle indicator-start rotate-[-90deg] border-base-100 font-expanded text-base">
+            {% block time %}{% endblock %}
+        </span>
+        <span class="indicator-item badge badge-primary indicator-middle indicator-end rotate-[90deg] border-base-100 font-expanded text-base">
+            {% block paf %}{% endblock %}
+        </span>
+        <div class="space-y-4">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
