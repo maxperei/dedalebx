@@ -2,6 +2,7 @@
 <html lang="fr" data-theme="black">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Dédale • Bordeaux • Musique expérimentale & arts déviants{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
     {% block stylesheets %}
@@ -11,36 +12,28 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="h-screen">
+<body class="min-h-screen">
 <div class="h-full grid grid-cols-12 gap-4">
     {% block header %}
-        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3 z-2">
+        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3">
             <div class="drawer">
                 <input id="main-menu" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content flex flex-col">
-                    <div class="flex items-start justify-between lg:block lg:mb-12">
-                        <a href="{{ path('home') }}">
-                            <img
-                                src="{{ asset('images/logo.png') }}"
-                                class="max-w-[290px]"
-                                alt="Logo dédale en écriture manuscrite"
-                            />
-                            <small class="text-sm whitespace-nowrap">Musique expérimentale <br>& arts déviants</small>
-                        </a>
-                        <label for="main-menu" class="lg:hidden btn btn-ghost border-dashed hover:border-transparent border-white hover:bg-black swap swap-rotate">
-                            <input type="checkbox" />
-                            <span class="swap-off font-expanded text-base">
+                    <div class="flex items-start justify-between lg:block lg:mb-12 z-1">
+                        {% include '_logo.html.twig' %}
+                        <label for="main-menu" class="lg:hidden btn btn-ghost border-1 border-dashed hover:border-transparent border-white hover:bg-black">
+                            <span class="font-expanded text-base">
                                 menu
-                            </span>
-                            <span class="swap-on font-expanded text-base">
-                                fermer
                             </span>
                         </label>
                     </div>
                 </div>
-                <div class="drawer-side">
+                <div class="drawer-side z-2">
                     <label for="main-menu" aria-label="close sidebar" class="drawer-overlay"></label>
-                    <ul class="bg-base-100 min-h-full w-4/5 p-4 space-y-6">
+                    <ul class="bg-base-100 min-h-full p-6 space-y-6">
+                        <div class="mb-12">
+                            {% include '_logo.html.twig' %}
+                        </div>
                         {% include '_menuitems.html.twig' %}
                     </ul>
                 </div>
@@ -53,7 +46,7 @@
         </header>
     {% endblock %}
     {% block body %}
-        <main class="h-screen overflow-auto col-span-12 sm:col-span-8 lg:col-span-6 relative">
+        <main class="h-screen col-span-12 md:col-span-8 lg:col-span-6">
             <section class="m-6 mb-0 lg:m-16 ml-4">
                 <h1 class="font-expanded text-6xl lg:pt-18 pb-3">
                     {% block heading %}{% endblock %}
@@ -61,12 +54,12 @@
                 <h3 class="font-mono text-xl pb-12">
                     {% block subheading %}{% endblock %}
                 </h3>
-                <div id="main-content">
+                <div id="main-content" class="z-1 relative">
                     {% block content %}{% endblock %}
                 </div>
             </section>
         </main>
-        <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95">
+        <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95 z-0">
             <header class="h-screen relative overflow-auto">
                 {% block maze %}
                     <img src="{{ asset('images/maze-animated.svg') }}" alt="">
