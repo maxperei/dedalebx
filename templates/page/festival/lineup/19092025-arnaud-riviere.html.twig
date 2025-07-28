@@ -1,0 +1,35 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/arnaud-riviere-paul-ternisien.jpg') ~ '" alt="Arnaud Rivière en live - photo signée Paul Ternisien">' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="Arnaud Rivière live at LUFF 2018" width="100%" height="100%" src="https://www.youtube.com/embed/sqjIYH90udY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button
+            class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }}
+            data-embed="{{ yt }}">YouTube
+        </button>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Arnaud Rivière</h2>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Musicien autodidacte, Arnaud Rivière pratique l’improvisation libre à tendance bruitiste en solo, en groupe
+            et dans le cadre de rencontres, depuis la fin des années 90.
+        </p>
+        <p>
+            Il utilise principalement un dispositif électroacoustique rudimentaire construit autour d’un électrophone
+            réparé (moult fois), d’une table de mixage préparée et de quelques micros/capteurs : une électronique
+            primitive où le geste est primordial. Entre performance et concert, ses prestations scéniques sont
+            remarquées par leur énergie, leur intensité, leur implication physique rare dans les musiques électroniques
+            et un goût pour le non-sense et la rupture qui conjuguent drame et comédie.
+        </p>
+        <p>
+            Membre de L’A_R_C_C, (soit L’Association de Recherche contre le Concert, en duo avec C_C) et AUTOREVERSE
+            (avec Nina Garcia).
+        </p>
+    </div>
+</article>

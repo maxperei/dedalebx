@@ -14,4 +14,8 @@ export default class extends Controller {
     const nodeToMove = this.element.querySelector(e.detail.id);
     this.stackTarget.insertBefore(nodeToMove, this.stackTarget.firstElementChild);
   }
+
+  revealDrawer(e) {
+    this.element.querySelector('#' + e.currentTarget.getAttribute('for')).checked = true;
+  }
 }

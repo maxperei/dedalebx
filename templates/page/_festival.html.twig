@@ -31,88 +31,102 @@
             <p>Chaque évènement sera disséminé à travers la ville, et fera vibrer un recoin du dédale... alors vous venez vous y perdre ?</p>
         </div>
         <div class="stack stack-start space-y-8 hidden" {{ stimulus_target('line-up', 'stack') }}>
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}19092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 19092025} %}
                 {% block date %}Vendredi 19{% endblock %}
                 {% block time %}20h–00h{% endblock %}
                 {% block paf %}10€{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">{% block venue %}Café pompier • 7 place Pierre Renaudel, 33800 Bordeaux{% endblock %}</h4>
                     <p class="text-base/4">Une soirée d'ouverture sous le signe de l'improvisation et du bruit, où l'accident est maitre et la collision créatrice. Intensité et sensations fortes garanties.</p>
-                    <p class="text-base/4 text-right">3 piments</p>
+                    <p class="text-xl text-right">🌶🌶🌶</p>
                     <div class="border-t-1 border-dashed"></div>
                     <ul class="line-up space-y-2">
                         <li>
-                            <div class="drawer drawer-end">
-                                <input id="drawer-19092025-jerome-noetinger-lionel-fernandez" type="checkbox" class="drawer-toggle" />
-                                <div class="drawer-content">
-                                    <label for="drawer-19092025-jerome-noetinger-lionel-fernandez" class="drawer-button font-mono text-xs">
-                                        • <a class="cursor-pointer hover:underline hover:decoration-dashed">Jérôme Noetinger ⨯ Lionel Fernandez</a> •
-                                    </label>
-                                    <p class="font-sans mt-1"><strong class="kbd">noise</strong> <span class="ml-1">(Bretagne/Isère)</span></p>
-                                </div>
-                                <div class="drawer-side">
-                                    <label for="drawer-19092025-jerome-noetinger-lionel-fernandez" aria-label="close sidebar" class="drawer-overlay"></label>
-                                    <div class="bg-base-100 text-base-content min-h-full w-4/5 lg:w-4/7 p-4">
-                                        {% include 'page/festival/lineup/19092025/jerome-noetinger-lionel-fernandez.html.twig' %}
-                                    </div>
-                                </div>
-                            </div>
+                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+                                <a
+                                    class="cursor-pointer hover:underline hover:decoration-dashed"
+                                    data-turbo-frame="detail-19092025"
+                                    href="{{ path('app_block_detail', {'slug': '19092025-jerome-noetinger-lionel-fernandez'}) }}"
+                                >• Jérôme Noetinger ⨯ Lionel Fernandez •</a>
+                            </label>
+                            <p class="font-sans mt-1"><strong class="kbd">noise</strong> <span class="ml-1">(Bretagne/Isère)</span></p>
                         </li>
-                        <li><p class="font-mono text-xs">• Arnaud Rivière •</p> <p class="font-sans"><strong class="kbd">harsh noise</strong> <span class="ml-1">(Paris)</span></p></li>
-                        <li><p class="font-mono text-xs">• Rühland + Michel Doneda •</p> <p class="font-sans"><strong class="kbd">rock expé/free impro</strong> <span class="ml-1">(Bordeaux/Dordogne)</span></p></li>
-                        <li><p class="font-mono text-xs">• Le trou noir •</p> <p class="font-sans"><strong class="kbd">free rock</strong> <span class="ml-1">(Bordeaux)</span></p></li>
+                        <li>
+                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+                                <a
+                                    class="cursor-pointer hover:underline hover:decoration-dashed"
+                                    data-turbo-frame="detail-19092025"
+                                    href="{{ path('app_block_detail', {'slug': '19092025-arnaud-riviere'}) }}"
+                                >• Arnaud Rivière •</a>
+                            </label>
+                            <p class="font-sans mt-1"><strong class="kbd">harsh noise</strong><span class="ml-1">(Paris)</span></p>
+                        </li>
+                        <li>
+                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+                                <a
+                                    class="cursor-pointer hover:underline hover:decoration-dashed"
+                                    data-turbo-frame="detail-19092025"
+                                    href="{{ path('app_block_detail', {'slug': '19092025-ruhland-michel-doneda'}) }}"
+                                >• Rühland + Michel Doneda •</a>
+                            </label>
+                            <p class="font-sans mt-1"><strong class="kbd">rock expé</strong><strong class="kbd">free impro</strong> <span class="ml-1">(Bordeaux/Dordogne)</span></p>
+                        </li>
+                        <li>
+                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+                                <a
+                                    class="cursor-pointer hover:underline hover:decoration-dashed"
+                                    data-turbo-frame="detail-19092025"
+                                    href="{{ path('app_block_detail', {'slug': '19092025-le-trou-noir'}) }}"
+                                >• Le trou noir •</a>
+                            </label>
+                            <p class="font-sans mt-1"><strong class="kbd">free rock</strong> <span class="ml-1">(Bordeaux)</span></p>
+                        </li>
                     </ul>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}20092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 20092025} %}
                 {% block date %}Samedi 20/09{% endblock %}
                 {% block time %}20h–00h{% endblock %}
                 {% block paf %}12€{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">Cumulus • 163 rue Emile Combes, 33270 Floirac</h4>
-                    <p>Deuxième soirée 100% électronique avec des projets allant de la glitch à l'ambient en passant par des patterns algorithmiques. Onirisme numérique et crépitements de processeurs.</p>
-                    <p class="text-right">1 piment</p>
+                    <p class="text-base/4">Deuxième soirée 100% électronique avec des projets allant de la glitch à l'ambient en passant par des patterns algorithmiques. Onirisme numérique et crépitements de processeurs.</p>
+                    <p class="text-xl text-right">🌶</p>
                     <div class="border-t-1 border-dashed"></div>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}21092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 21092025} %}
                 {% block date %}Dimanche 21/09{% endblock %}
                 {% block time %}14h–18h{% endblock %}
                 {% block paf %}Gratuit{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">Parc aux angéliques • Quai des Queyries, 33000 Bordeaux</h4>
-                    <p>Ambiance chill-out, apaisement et relaxation, résonnances purifiantes, caresse du vent, murmure de l'eau... </p>
-                    <p class="text-right">0 piment</p>
+                    <p class="text-base/4">Ambiance chill-out, apaisement et relaxation, résonnances purifiantes, caresse du vent, murmure de l'eau... </p>
+                    <p class="text-xl text-right line-through">🌶</p>
                     <div class="border-t-1 border-dashed"></div>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}22092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {'id': 22092025} %}
                 {% block date %}Lundi 22/09{% endblock %}
                 {% block time %}20h–22h{% endblock %}
                 {% block paf %}gratuit{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">Espace 29 • 29 rue Fernand Marin, 33000 Bordeaux</h4>
-                    <p>Vernissage installation sonores + performances</p>
+                    <p class="text-base/4">Vernissage installation sonores + performances</p>
                     <div class="border-t-1 border-dashed"></div>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}23092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 23092025} %}
                 {% block date %}Mardi 23/09{% endblock %}
                 {% block time %}20h–23h{% endblock %}
                 {% block paf %}prix libre{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">Château Pallettes • 17 rue Élie Gintrac, 33000 Bordeaux</h4>
-                    <p>Conférence cosmique avec Lazlo de l'association/label Scolopendre + Projections films expérimentaux</p>
+                    <p class="text-base/4">Conférence cosmique avec Lazlo de l'association/label Scolopendre + Projections films expérimentaux</p>
                     <div class="border-t-1 border-dashed"></div>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}24092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 24092025} %}
                 {% block date %}Mercredi 24/09{% endblock %}
                 {% block time %}20h–23h{% endblock %}
                 {% block paf %}Prix libre{% endblock %}
@@ -129,8 +143,7 @@
                     </ul>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}25092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 25092025} %}
                 {% block date %}Jeudi 25/09{% endblock %}
                 {% block time %}20h30–??{% endblock %}
                 {% block paf %}7€–10€{% endblock %}
@@ -138,26 +151,24 @@
                     <h4 class="font-mono text-sm card-title">L'inconnue • 181 rue François Boucher, 33400 Talence</h4>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}26092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 26092025} %}
                 {% block date %}Vendredi 26/09{% endblock %}
                 {% block time %}20h–23h{% endblock %}
                 {% block paf %}Prix libre{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">Château Pallettes • 17 rue Élie Gintrac, 33000 Bordeaux</h4>
-                    <p>Rebonds dans l'espace, des sons qui se balladent d'une enceinte à l'autre, et décrivent des formes que l'on a encore jamais entendues. La musique électroacoustique dans tout ses états.</p>
-                    <p>2 piments</p>
+                    <p class="text-base/4">Rebonds dans l'espace, des sons qui se balladent d'une enceinte à l'autre, et décrivent des formes que l'on a encore jamais entendues. La musique électroacoustique dans tout ses états.</p>
+                    <p class="text-xl text-right">🌶🌶</p>
                 {% endblock %}
             {% endembed %}
-            {% embed 'page/festival/lineup.html.twig' %}
-                {% block id %}27092025{% endblock %}
+            {% embed 'page/festival/lineup.html.twig' with {id: 27092025} %}
                 {% block date %}Samedi 27/09{% endblock %}
                 {% block time %}20h–00h{% endblock %}
                 {% block paf %}8€{% endblock %}
                 {% block content %}
                     <h4 class="font-mono text-sm card-title">Les vivres de l'art • 4 Rue Achard, Bordeaux</h4>
-                    <p>Retour aux sources primitives de la musique, le bois qui résonne, la voix qui vrille, la ronde infinie. Avant-folk, drone et musique traditionnelles revisitées pour clôturer le festival.</p>
-                    <p>2 piments</p>
+                    <p class="text-base/4">Retour aux sources primitives de la musique, le bois qui résonne, la voix qui vrille, la ronde infinie. Avant-folk, drone et musique traditionnelles revisitées pour clôturer le festival.</p>
+                    <p class="text-xl text-right">🌶</p>
                 {% endblock %}
             {% endembed %}
         </div>

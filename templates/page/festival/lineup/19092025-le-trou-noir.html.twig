@@ -1,0 +1,26 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/trou-noir.jpg') ~ '" alt="Auréole blanche sur fond noir">' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <a
+            href="https://soundcloud.com/user-710546031/four-cut/s-jZGhVG4soYY"
+            target="_blank"
+            class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }}
+        >Soundcloud
+        </a>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Le trou noir</h2>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Le trou noir absorbe la matière environnante, la transforme et génère de nouveaux espaces sonores, nous
+            transportant dans les zones d'ombres de la galaxie. Le trou noir se nourrit du vide pour recracher le tout :
+            il suit la vibration du champ cosmique qu'il tente de reproduire sur le moment.
+        </p>
+    </div>
+</article>

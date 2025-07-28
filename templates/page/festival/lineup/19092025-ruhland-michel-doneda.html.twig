@@ -1,0 +1,41 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/ruhland.jpg') ~ '" alt="Rühland en live">' %}
+{% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=1161473111/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=44060064/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=1874141234/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="Arnaud Rivière live at LUFF 2018" width="100%" height="100%" src="https://www.youtube.com/embed/JunJSj1bQhw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button
+            class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }}
+            data-embed="{{ bc }}">Bandcamp
+        </button>
+        <button
+            class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }}
+            data-embed="{{ yt }}">YouTube
+        </button>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Rühland + Michel Doneda</h2>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Rühland est un duo de musique improvisée avec Mathias Pontévia
+            à la batterie horizontale (quelle drôle d’idée !) et Yan Saboa à la
+            guitare électrique triturée.
+        </p>
+        <p>
+            Musique énergique où l’infime est roi ;
+            drones et chants des baleines côtoient le crissement du métro parisien (ligne 4) ; coup de baguette cinglant
+            comme un tir de fusil à l’orée du jour dans un pré brumeux et froid ; duel sans humour.
+        </p>
+        <p>
+            Le duo invite pour la soirée le saxophoniste Michel Doneda, musicien d’expérience et de talent ayant
+            collaboré avec moult musiciens de renom dont Elvin Jones.
+        </p>
+    </div>
+</article>
