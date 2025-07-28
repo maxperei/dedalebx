@@ -18,10 +18,10 @@
         <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3">
             <div class="drawer">
                 <input id="main-menu" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col">
-                    <div class="flex items-start justify-between lg:block lg:mb-12 z-1">
+                <div class="drawer-content z-1">
+                    <div class="flex items-start justify-between lg:block lg:mb-12">
                         {% include '_logo.html.twig' %}
-                        <label for="main-menu" class="lg:hidden btn btn-ghost border-1 border-dashed hover:border-transparent border-white hover:bg-black">
+                        <label for="main-menu" class="lg:hidden btn border-1 border-dashed hover:border-transparent border-white hover:bg-transparent">
                             <span class="font-expanded text-base">
                                 menu
                             </span>
@@ -47,20 +47,20 @@
     {% endblock %}
     {% block body %}
         <main class="h-screen col-span-12 md:col-span-8 lg:col-span-6">
-            <section class="m-6 mb-0 lg:m-16 ml-4">
-                <h1 class="font-expanded text-6xl lg:pt-18 pb-3">
-                    {% block heading %}{% endblock %}
-                </h1>
-                <h3 class="font-mono text-xl pb-12">
-                    {% block subheading %}{% endblock %}
-                </h3>
+            <section class="m-4 lg:m-6 mb-0 lg:m-16 lg:ml-4">
                 <div id="main-content" class="z-1 relative">
+                    <h1 class="font-expanded break-all text-4xl lg:text-6xl lg:pt-18 pb-3">
+                        {% block heading %}{% endblock %}
+                    </h1>
+                    <h3 class="font-mono text-xl pb-12">
+                        {% block subheading %}{% endblock %}
+                    </h3>
                     {% block content %}{% endblock %}
                 </div>
             </section>
         </main>
         <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95 z-0">
-            <header class="h-screen relative overflow-auto">
+            <header class="h-screen relative overflow-y-auto">
                 {% block maze %}
                     <img src="{{ asset('images/maze-animated.svg') }}" alt="">
                 {% endblock %}
