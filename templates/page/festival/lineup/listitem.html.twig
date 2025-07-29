@@ -1,0 +1,36 @@
+{% if id is defined and id is not null %}
+    <li {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+        <label for="lineup-{{ id }}" class="drawer-button font-mono text-xs">
+            <a
+                {% if slug is defined %}
+                    class="cursor-pointer hover:underline hover:decoration-dashed"
+                    data-turbo-frame="detail-{{ id }}"
+                    href="{{ path('app_block_detail', {'slug': slug}) }}"
+                {% endif %}
+            >
+                • {{ name }} •
+            </a>
+        </label>
+        <p class="font-sans mt-1 flex">
+            {% if genres is defined and genres is iterable %}
+                {% for genre in genres %}
+                    <strong class="kbd">{{ genre }}</strong>
+                {% endfor %}
+            {% endif %}
+            {% if country is defined %}
+                <span class="ml-1">({{ country }})</span>
+            {% endif %}
+            {% if slug is defined %}
+                <a
+                    class="font-expanded ml-auto link text-xs"
+                    data-turbo-frame="detail-{{ id }}"
+                    href="{{ path('app_block_detail', {'slug': slug}) }}"
+                >Voir +</a>
+            {% endif %}
+        </p>
+    </li>
+{% elseif name is defined and name is not empty %}
+    <li class="font-mono text-xs">
+        • {{ name }} •
+    </li>
+{% endif %}

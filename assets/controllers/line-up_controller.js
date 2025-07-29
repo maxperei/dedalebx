@@ -16,6 +16,9 @@ export default class extends Controller {
   }
 
   revealDrawer(e) {
-    this.element.querySelector('#' + e.currentTarget.getAttribute('for')).checked = true;
+    if (e.target.tagName !== 'A' && e.target.tagName !== 'LABEL') {
+      return;
+    }
+    this.element.querySelector('#' + e.currentTarget.querySelector('label').getAttribute('for')).checked = true;
   }
 }

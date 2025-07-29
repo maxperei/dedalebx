@@ -81,3 +81,14 @@ li[role=menuitem]:hover a {
 #main-content .line-up p:first-letter {
     font-family: var(--font-sans), sans-serif;
 }
+
+.strikethrough:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 2px solid;
+    border-color: inherit;
+    transform: rotate(-30deg);
+}

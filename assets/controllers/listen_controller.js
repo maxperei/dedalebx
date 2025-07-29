@@ -7,7 +7,7 @@ export default class extends Controller {
   }
 
   toggleBtns(e) {
-    this.element.querySelectorAll('.btn-player').forEach((el) => el.classList.toggle('hidden'));
+    e.currentTarget.parentNode.querySelectorAll('.btn-player').forEach((el) => el.classList.toggle('hidden'));
   }
 
   revealPlayer(e) {

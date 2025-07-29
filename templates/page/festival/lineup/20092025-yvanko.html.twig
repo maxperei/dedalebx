@@ -1,0 +1,40 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/yvanko.jpg') ~ '" alt="Portrait d\'Yvanko">' %}
+{% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=1484007209/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=1262952218/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ bc }}">Bandcamp</button>
+        <a class="btn btn-player hidden" href="https://oval.bandcamp.com/" target="_blank">Bandcamp &nearr;</a>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Yvanko</h2>
+        <h3 class="font-mono">
+            <span class="font-expanded font-base">Labels :</span>
+            <a href="https://bigwax.io/collections/label-le-cabanon-records" target="_blank" class="link">Le Cabanon &nearr;</a>,
+            <a class="link" href="https://ooh-sounds.com" target="_blank">OOH-sounds &nearr;</a>
+        </h3>
+
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Déploie une matière issue de la contraction d’événements verticaux.
+        </p>
+        <p>
+            Organise leur collision par petites touches, pointes par pointes.
+        </p>
+        <p>
+            Structure une polyrythmie en arborescence de patterns.
+        </p>
+        <p>
+            Parcourt les occurrences.
+        </p>
+        <p>
+            Module les seuils critiques dans l’agrégation des impacts, cherche la densité qui se renverse et se dissipe.
+        </p>
+    </div>
+</article>

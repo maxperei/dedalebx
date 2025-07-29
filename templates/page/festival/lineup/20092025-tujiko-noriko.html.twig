@@ -1,0 +1,38 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/tujiko-noriko.jpeg') ~ '" alt="Tujiko Noriko">' %}
+{% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/track=1097099434/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=3582672397/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=2947128556/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ bc }}">Bandcamp</button>
+        <a class="btn btn-player hidden" href="https://oval.bandcamp.com/" target="_blank">Bandcamp &nearr;</a>
+    </div>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Site</button>
+        <a class="btn btn-player hidden" href="https://tujikonoriko.com/" target="_blank">tujikonoriko.com &nearr;</a>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Tujiko Noriko</h2>
+        <h3 class="font-mono">
+            <span class="font-expanded font-base">Labels :</span>
+            <a href="https://mego.at" target="_blank" class="link">Mego &nearr;</a>,
+            <a href="https://web.archive.org/web/20061112172127fw_/http://www.tomlab.com/index.html" class="link">Tomlab &nearr;</a>
+        </h3>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Depuis le début de ce siècle numérique, Tujiko Noriko creuse son écrin à mi-chemin entre les expérimentations glitch et une mélancholie 2.0. Elle sonde les failles de la technologie tout comme celles de l'âme humaine.
+        </p>
+        <p>
+            A travers des ballades qui évoquent l'onirisme des microprocesseurs, les crépitements cristallins et autres artefacts viennent se frotter à sa voix limpide et fragile, brouillant la frontière organique/technologique.
+        </p>
+        <p>
+            Avec son dernier album, elle se rapproche de territoires plus abstraits, et nous dévoile une ambient éthérée.
+        </p>
+    </div>
+</article>

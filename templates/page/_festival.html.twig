@@ -42,46 +42,34 @@
                     <p class="text-xl text-right">🌶🌶🌶</p>
                     <div class="border-t-1 border-dashed"></div>
                     <ul class="line-up space-y-2">
-                        <li>
-                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
-                                <a
-                                    class="cursor-pointer hover:underline hover:decoration-dashed"
-                                    data-turbo-frame="detail-19092025"
-                                    href="{{ path('app_block_detail', {'slug': '19092025-jerome-noetinger-lionel-fernandez'}) }}"
-                                >• Jérôme Noetinger ⨯ Lionel Fernandez •</a>
-                            </label>
-                            <p class="font-sans mt-1"><strong class="kbd">noise</strong> <span class="ml-1">(Bretagne/Isère)</span></p>
-                        </li>
-                        <li>
-                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
-                                <a
-                                    class="cursor-pointer hover:underline hover:decoration-dashed"
-                                    data-turbo-frame="detail-19092025"
-                                    href="{{ path('app_block_detail', {'slug': '19092025-arnaud-riviere'}) }}"
-                                >• Arnaud Rivière •</a>
-                            </label>
-                            <p class="font-sans mt-1"><strong class="kbd">harsh noise</strong><span class="ml-1">(Paris)</span></p>
-                        </li>
-                        <li>
-                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
-                                <a
-                                    class="cursor-pointer hover:underline hover:decoration-dashed"
-                                    data-turbo-frame="detail-19092025"
-                                    href="{{ path('app_block_detail', {'slug': '19092025-ruhland-michel-doneda'}) }}"
-                                >• Rühland + Michel Doneda •</a>
-                            </label>
-                            <p class="font-sans mt-1"><strong class="kbd">rock expé</strong><strong class="kbd">free impro</strong> <span class="ml-1">(Bordeaux/Dordogne)</span></p>
-                        </li>
-                        <li>
-                            <label for="lineup-19092025" class="drawer-button font-mono text-xs" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
-                                <a
-                                    class="cursor-pointer hover:underline hover:decoration-dashed"
-                                    data-turbo-frame="detail-19092025"
-                                    href="{{ path('app_block_detail', {'slug': '19092025-le-trou-noir'}) }}"
-                                >• Le trou noir •</a>
-                            </label>
-                            <p class="font-sans mt-1"><strong class="kbd">free rock</strong> <span class="ml-1">(Bordeaux)</span></p>
-                        </li>
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 19092025,
+                            slug: '19092025-jerome-noetinger-lionel-fernandez',
+                            name: 'Jérôme Noetinger ⨯ Lionel Fernandez',
+                            genres: ['noise'],
+                            country: 'Bretagne/Isère'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 19092025,
+                            slug: '19092025-arnaud-riviere',
+                            name: 'Arnaud Rivière',
+                            genres: ['harsh noise'],
+                            country: 'Paris'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 19092025,
+                            slug: '19092025-ruhland-michel-doneda',
+                            name: 'Rühland + Michel Doneda',
+                            genres: ['rock expé', 'free impro'],
+                            country: 'Bordeaux/Dordogne'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 19092025,
+                            slug: '19092025-le-trou-noir',
+                            name: 'Le trou noir',
+                            genres: ['free rock'],
+                            country: 'Bordeaux'
+                        } %}
                     </ul>
                 {% endblock %}
             {% endembed %}
@@ -92,9 +80,33 @@
                 {% block venue %}Cumulus{% endblock %}
                 {% block address %}163 rue Emile Combes, 33270 Floirac{% endblock %}
                 {% block content %}
-                    <p class="text-base/4">Deuxième soirée 100% électronique avec des projets allant de la glitch à l'ambient en passant par des patterns algorithmiques. Onirisme numérique et crépitements de processeurs.</p>
+                    <p class="text-base/4">Deuxième soirée 100% électronique avec des projets allant de la glitch à l'ambient en passant par des patterns algorithmiques. </p>
+                    <p class="text-base/4">Onirisme numérique et crépitements de processeurs.</p>
                     <p class="text-xl text-right">🌶</p>
                     <div class="border-t-1 border-dashed"></div>
+                    <ul class="line-up space-y-2">
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 20092025,
+                            slug: '20092025-oval',
+                            name: 'Oval',
+                            genres: ['glitch pioneer'],
+                            country: 'Berlin'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 20092025,
+                            slug: '20092025-tujiko-noriko',
+                            name: 'Tujiko Noriko',
+                            genres: ['ambient', 'glitch pop'],
+                            country: 'Japon'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 20092025,
+                            slug: '20092025-yvanko',
+                            name: 'Yvanko',
+                            genres: ['algorithmic music'],
+                            country: 'Bordeaux'
+                        } %}
+                    </ul>
                 {% endblock %}
             {% endembed %}
             {% embed 'page/festival/lineup.html.twig' with {id: 21092025} %}
@@ -105,8 +117,27 @@
                 {% block address %}Quai des Queyries, 33000 Bordeaux{% endblock %}
                 {% block content %}
                     <p class="text-base/4">Ambiance chill-out, apaisement et relaxation, résonnances purifiantes, caresse du vent, murmure de l'eau... </p>
-                    <p class="text-xl text-right line-through">🌶</p>
+                    <p class="text-xl text-right">
+                        <span class="strikethrough relative">🌶</span>
+                    </p>
                     <div class="border-t-1 border-dashed"></div>
+                    <ul class="line-up space-y-2">
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 21092025,
+                            slug: '21092025-julia-hanadi-al-abed',
+                            name: 'Julia Hanadi Al Abed (live)',
+                            genres: ['akousma', 'musique concrète'],
+                            country: 'Bordeaux'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 21092025,
+                            name: 'Yuw Xys (dj set)',
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: null,
+                            name: '+ Guests',
+                        } %}
+                    </ul>
                 {% endblock %}
             {% endembed %}
             {% embed 'page/festival/lineup.html.twig' with {'id': 22092025} %}
@@ -140,12 +171,20 @@
                 {% block content %}
                     <div class="border-t-1 border-dashed"></div>
                     <ul class="line-up space-y-2">
-                        <li>
-                            <p class="font-mono text-xs">• <a href="https://newsite.jeannesimone.com/compagnie/" target="_blank">Cie Jeanne Simone</a> •</p> <p class="font-sans"><strong class="kbd">Danse improvisée</strong> <span class="ml-1">(Bordeaux)</span></p>
-                        </li>
-                        <li>
-                            <p class="font-mono text-xs">• <a href="https://octandre-asso.org/nous-soutenir/" target="_blank">Association Octandre</a> •</p> <p class="font-sans"><strong class="kbd">Live électroacoustique</strong> <span class="ml-1">(Bordeaux)</span></p>
-                        </li>
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 24092025,
+                            slug: '24092025-cie-jeanne-simone',
+                            name: 'Cie Jeanne Simone',
+                            genres: ['danse improvisée'],
+                            country: 'Bordeaux'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 24092025,
+                            slug: '24092025-asso-octandre',
+                            name: 'Association Octandre',
+                            genres: ['live électroacoustique'],
+                            country: 'Bordeaux'
+                        } %}
                     </ul>
                 {% endblock %}
             {% endembed %}
@@ -155,7 +194,24 @@
                 {% block paf %}7€–10€{% endblock %}
                 {% block venue %}L'inconnue{% endblock %}
                 {% block address %}181 rue François Boucher, 33400 Talence{% endblock %}
-                {% block content %}{% endblock %}
+                {% block content %}
+                    <div class="border-t-1 border-dashed"></div>
+                    <ul class="line-up space-y-2">
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 25092025,
+                            slug: '25092025-aragnes',
+                            name: 'Aragnes',
+                            genres: ['free folk'],
+                            country: 'France'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 25092025,
+                            name: 'Epépé',
+                            genres: ['live électroacoustique'],
+                            country: 'France'
+                        } %}
+                    </ul>
+                {% endblock %}
             {% endembed %}
             {% embed 'page/festival/lineup.html.twig' with {id: 26092025} %}
                 {% block date %}Vendredi 26/09{% endblock %}
@@ -164,8 +220,27 @@
                 {% block venue %}Château Pallettes{% endblock %}
                 {% block address %}17 rue Élie Gintrac, 33000 Bordeaux{% endblock %}
                 {% block content %}
-                    <p class="text-base/4">Rebonds dans l'espace, des sons qui se balladent d'une enceinte à l'autre, et décrivent des formes que l'on a encore jamais entendues. La musique électroacoustique dans tout ses états.</p>
+                    <p class="text-base/4">Rebonds dans l'espace, des sons qui se baladent d'une enceinte à l'autre, et décrivent des formes que l'on a encore jamais entendues. La musique électroacoustique dans tous ses états.</p>
                     <p class="text-xl text-right">🌶🌶</p>
+                    <div class="border-t-1 border-dashed"></div>
+                    <ul class="line-up space-y-2">
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 26092025,
+                            slug: '26092025-asso-octandre',
+                            name: 'Association Octandre',
+                            genres: ['diffusions acousmatiques'],
+                            country: 'Bordeaux'
+                        } %}
+                        <ul class="line-up space-y-2">
+                            {% include 'page/festival/lineup/listitem.html.twig' with {
+                                id: 26092025,
+                                slug: '26092025-augustin-braud',
+                                name: 'Augustin Braud',
+                                genres: ['electroacoustic'],
+                                country: 'Tours'
+                            } %}
+                        </ul>
+                    </ul>
                 {% endblock %}
             {% endembed %}
             {% embed 'page/festival/lineup.html.twig' with {id: 27092025} %}
@@ -177,6 +252,29 @@
                 {% block content %}
                     <p class="text-base/4">Retour aux sources primitives de la musique, le bois qui résonne, la voix qui vrille, la ronde infinie. Avant-folk, drone et musique traditionnelles revisitées pour clôturer le festival.</p>
                     <p class="text-xl text-right">🌶</p>
+                    <div class="border-t-1 border-dashed"></div>
+                    <ul class="line-up space-y-2">
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 27092025,
+                            slug: '27092025-begayer',
+                            name: 'Bégayer',
+                            genres: ['avant-folk'],
+                            country: 'France'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 27092025,
+                            slug: '27092025-desailly-guionnet-busolini',
+                            name: 'Desailly/Guionnet/Busolini',
+                            genres: ['drone', 'impro'],
+                            country: 'France'
+                        } %}
+                        {% include 'page/festival/lineup/listitem.html.twig' with {
+                            id: 27092025,
+                            name: 'Ventre bleu',
+                            genres: ['drone trad'],
+                            country: 'Bordeaux'
+                        } %}
+                    </ul>
                 {% endblock %}
             {% endembed %}
         </div>

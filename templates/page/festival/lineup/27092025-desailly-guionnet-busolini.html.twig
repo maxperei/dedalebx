@@ -1,0 +1,28 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/dessailly-guionnet-busolini.jpeg') ~ '" alt="Encre sur papier granulé représentant une silhouette de femme abstraite">' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Sites externes</button>
+        <a class="btn btn-player hidden" href="https://jdesailly.com" target="_blank">https://jdesailly.com &nearr;</a>
+        <a class="btn btn-player hidden" href="https://jeanlucguionnet.eu" target="_blank">https://jeanlucguionnet.eu &nearr;</a>
+        <a class="btn btn-player hidden" href="https://www.cyprienbusolini.com" target="_blank">https://www.cyprienbusolini.com &nearr;</a>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Cyprien Busolini, Alto</h2>
+        <h2 class="font-mono text-base">Julien Desailly, Cornemuse</h2>
+        <h2 class="font-mono text-base">Jean-Luc Guionnet, Saxophone alto</h2>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Horizons : cornemuse alto et sax, chacun tire tout un monde rien que
+            par le son de son outil, et il faut passer entre eux.
+        </p>
+        <p>
+            Tire à soi, tire à nous, font aussi tout pour qu'ils se tirent les trois comme en
+            chœur, mais plutôt comme des lignes, et qu'on en finisse avec l'horizon.
+        </p>
+    </div>
+</article>

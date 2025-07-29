@@ -1,0 +1,22 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/cie-jeanne-simone.jpg') ~ '" alt="Yvanko aka Yvan Tekoutcheff">' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="LA TRAVERSE - 2024 (film 2) projet participatif de marche au ralenti dans l\'espace public" width="100%" height="100%" src="https://www.youtube.com/embed/G6vrNsw3UWg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
+{% set yt2 = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="CE QUI S\'APPELLE ENCORE PEAU - 2021 // Ou le nu du plateau" width="100%" height="100%" src="https://www.youtube.com/embed/5MPFJkrgWZk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ yt }}">YouTube</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ yt2 }}">YouTube</button>
+        <a class="btn btn-player hidden" href="https://www.youtube.com/@compagniejeannesimone8850" target="_blank">YouTube &nearr;</a>
+    </div>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Site</button>
+        <a class="btn btn-player hidden" href="https://newsite.jeannesimone.com/compagnie" target="_blank">https://newsite.jeannesimone.com/compagnie &nearr;</a>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Compagnie Jeanne Simone</h2>
+    </div>
+</article>

@@ -1,0 +1,27 @@
+{% set img = '<img loading="lazy" src="' ~ asset('images/begayer.jpg') ~ '" alt="Portrait des trois membres du groupe Bégayer">' %}
+{% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=3770290490/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=754454414/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=1851211407/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="Bégayer | Territoires" width="100%" height="100%" src="https://www.youtube.com/embed/u0u-cvvrNZY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
+
+<article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
+    <picture {{ stimulus_target('listen', 'area') }}>
+        {{ img|raw }}
+    </picture>
+    <div class="mt-3 flex gap-4 flex-wrap">
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ bc }}">Bandcamp</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ yt }}">YouTube</button>
+    </div>
+    <div class="my-6">
+        <h2 class="font-mono text-base">Bégayer</h2>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>
+            Chanson française, bruitismes, rumeurs des musiques anciennes et lointaines, instruments faits-mains, radios-transistors modifiés et autres vieux objets électroniques.
+        </p>
+        <p>
+            Bégayer cherche un geste pour les sans-folklores, les rapsodes-métèques, les rejetons d'une culture du manque, enfantée aussi bien par le crépuscule des habitus populaires que par les hurlements bruitistes, par les places publiques des villages comme par le fourmillement des flux numériques.
+        </p>
+    </div>
+</article>
