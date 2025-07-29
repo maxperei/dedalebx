@@ -2,18 +2,16 @@
 <html lang="fr" data-theme="black">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     <title>{% block title %}Dédale • Bordeaux • Musique expérimentale & arts déviants{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-    {% block stylesheets %}
-    {% endblock %}
+    {% block stylesheets %}{% endblock %}
 
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="min-h-screen">
-<div class="h-full grid grid-cols-12 gap-4">
+<body class="min-h-screen grid grid-cols-12 gap-4">
     {% block header %}
         <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3">
             <div class="drawer">
@@ -21,7 +19,7 @@
                 <div class="drawer-content z-1">
                     <div class="flex items-start justify-between lg:block lg:mb-12">
                         {% include '_logo.html.twig' %}
-                        <label for="main-menu" class="lg:hidden btn border-1 border-dashed hover:border-transparent border-white hover:bg-transparent">
+                        <label for="main-menu" class="lg:hidden btn bg-black cursor-pointer border-1 border-dashed border-white hover:border-transparent p-2">
                             <span class="font-expanded text-base">
                                 menu
                             </span>
@@ -46,7 +44,7 @@
         </header>
     {% endblock %}
     {% block body %}
-        <main class="h-screen col-span-12 md:col-span-8 lg:col-span-6">
+        <main class="col-span-12 md:col-span-8 lg:col-span-6">
             <section class="m-4 lg:m-6 mb-0 lg:m-16 lg:ml-4">
                 <div id="main-content" class="z-1 relative">
                     <h1 class="font-expanded break-all text-4xl lg:text-6xl lg:pt-18 pb-3">
@@ -68,6 +66,5 @@
             {% block aside %}{% endblock %}
         </aside>
     {% endblock %}
-</div>
 </body>
 </html>

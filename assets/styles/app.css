@@ -40,11 +40,15 @@
 body {
     font-family: var(--font-sans), sans-serif;
     color: var(--color-white);
+    background: var(--color-black) url("../images/background.jpg") repeat;
+    background-size: 100%;
 }
 
-body > div {
-    background: var(--color-black) url("../images/background-rotate.jpg");
-    background-size: cover;
+@media screen and (min-width: 48rem) {
+    body {
+        background: var(--color-black) url("../images/background-rotate.jpg");
+        background-size: cover;
+    }
 }
 
 header {
