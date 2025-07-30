@@ -49,7 +49,7 @@
         <main class="col-span-12 md:col-span-8 lg:col-span-6" tabindex="-1">
             <section class="m-4 lg:m-6 mb-0 lg:m-16 lg:ml-4">
                 <div id="main-content" class="z-1 relative">
-                    <h1 class="font-expanded break-all text-4xl lg:text-6xl lg:pt-18 pb-3">
+                    <h1 class="font-expanded break-all text-4xl lg:text-6xl lg:pt-17 pb-3">
                         {% block heading %}{% endblock %}
                     </h1>
                     <h2 class="font-mono text-xl pb-12">
@@ -60,11 +60,11 @@
             </section>
         </main>
         <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95 z-0">
-            <header class="h-screen relative overflow-y-auto">
                 {% block maze %}
-                    <img src="{{ asset('images/maze-animated.svg') }}" alt="" role="presentation">
+                    <header class="h-screen relative overflow-y-auto">
+                        <img src="{{ asset('images/maze-animated.svg') }}" alt="" role="presentation">
+                    </header>
                 {% endblock %}
-            </header>
             {% block aside %}{% endblock %}
         </aside>
     {% endblock %}
