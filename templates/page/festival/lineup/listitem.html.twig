@@ -1,32 +1,40 @@
 {% if id is defined and id is not null %}
-    <li {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+    <li role="listitem" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
         <label for="lineup-{{ id }}" class="drawer-button font-mono text-xs">
-            <a
-                {% if slug is defined %}
+            {% if slug is defined %}
+                <a
                     class="cursor-pointer hover:underline hover:decoration-dashed"
                     data-turbo-frame="detail-{{ id }}"
                     href="{{ path('app_block_detail', {'slug': slug}) }}"
-                {% endif %}
-            >
-                • {{ name }} •
-            </a>
-        </label>
-        <p class="font-sans mt-1 flex">
-            {% if genres is defined and genres is iterable %}
-                {% for genre in genres %}
-                    <strong class="kbd">{{ genre }}</strong>
-                {% endfor %}
+                >
             {% endif %}
-            {% if country is defined %}
-                <span class="ml-1">({{ country }})</span>
-            {% endif %}
+            • {{ name }} •
             {% if slug is defined %}
-                <a
-                    class="font-expanded ml-auto link text-xs"
-                    data-turbo-frame="detail-{{ id }}"
-                    href="{{ path('app_block_detail', {'slug': slug}) }}"
-                >Voir +</a>
+                </a>
             {% endif %}
+        </label>
+        <p class="font-sans mt-1 flex flex-wrap space-x-1 items-center justify-between">
+            <span>
+                {% apply spaceless %}
+                    {% if genres is defined and genres is iterable %}
+                        {% for genre in genres %}
+                            <strong class="kbd">{{ genre }}</strong>
+                        {% endfor %}
+                    {% endif %}
+                {% endapply %}
+                {% if country is defined %}
+                    <span>({{ country }})</span>
+                {% endif %}
+            </span>
+            <span>
+                {% if slug is defined %}
+                    <a
+                        class="font-expanded underline decoration-dashed text-xs"
+                        data-turbo-frame="detail-{{ id }}"
+                        href="{{ path('app_block_detail', {'slug': slug}) }}"
+                    >Voir +</a>
+                {% endif %}
+            </span>
         </p>
     </li>
 {% elseif name is defined and name is not empty %}

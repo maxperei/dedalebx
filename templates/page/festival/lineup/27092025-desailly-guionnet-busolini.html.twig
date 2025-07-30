@@ -1,19 +1,19 @@
-{% set img = '<img loading="lazy" src="' ~ asset('images/dessailly-guionnet-busolini.jpeg') ~ '" alt="Encre sur papier granulé représentant une silhouette de femme abstraite">' %}
+{% set img = '<img loading="lazy" src="' ~ asset('images/dessailly-guionnet-busolini.jpg') ~ '" alt="Encre sur papier granulé représentant une silhouette de femme abstraite">' %}
 
 <article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
     <picture {{ stimulus_target('listen', 'area') }}>
         {{ img|raw }}
     </picture>
     <div class="mt-3 flex gap-4 flex-wrap">
-        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Sites externes</button>
+        <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Sites web</button>
         <a class="btn btn-player hidden" href="https://jdesailly.com" target="_blank">https://jdesailly.com &nearr;</a>
         <a class="btn btn-player hidden" href="https://jeanlucguionnet.eu" target="_blank">https://jeanlucguionnet.eu &nearr;</a>
         <a class="btn btn-player hidden" href="https://www.cyprienbusolini.com" target="_blank">https://www.cyprienbusolini.com &nearr;</a>
     </div>
     <div class="my-6">
-        <h2 class="font-mono text-base">Cyprien Busolini, Alto</h2>
-        <h2 class="font-mono text-base">Julien Desailly, Cornemuse</h2>
-        <h2 class="font-mono text-base">Jean-Luc Guionnet, Saxophone alto</h2>
+        <h3 class="font-mono text-base">Cyprien Busolini, alto</h3>
+        <h3 class="font-mono text-base">Julien Desailly, cornemuse</h3>
+        <h3 class="font-mono text-base">Jean-Luc Guionnet, saxophone alto</h3>
     </div>
     <div class="space-y-4 text-base">
         <p>

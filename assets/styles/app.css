@@ -26,6 +26,7 @@
     url('../fonts/AkiraExpanded.woff') format('woff');
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
 }
 
 @theme {
@@ -55,11 +56,8 @@ header {
     font-family: var(--font-mono), monospace;
 }
 
-header nav {
+nav[role="navigation"] li a {
     font-family: var(--font-expanded), sans-serif;
-}
-
-li[role=menuitem] a {
     white-space: nowrap;
     position: relative;
     bottom: 0;
@@ -67,7 +65,7 @@ li[role=menuitem] a {
     font-size: var(--text-xl);
 }
 
-li[role=menuitem]:hover a {
+nav[role="navigation"] li:hover a {
     outline: 1px dashed var(--color-white);
     outline-offset: 4px;
     bottom: 2px;

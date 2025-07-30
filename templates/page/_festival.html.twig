@@ -11,10 +11,10 @@
                 <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd"></path>
             </svg>
         </div>
-        <ul tabindex="0" class="menu dropdown-content bg-black color-white w-52 p-2 shadow-sm">
-            <li><a {{ stimulus_action('dropdown', 'reset') }} class="menu-active">Avant-propos</a></li>
+        <ul role="list" tabindex="0" class="menu dropdown-content bg-black color-white w-52 p-2 shadow-sm">
+            <li><button {{ stimulus_action('dropdown', 'reset') }} class="menu-active">Avant-propos</button></li>
             {% for i in 19..27 %}
-                <li><a {{ stimulus_action('dropdown', 'selectDate') }} data-id="#date-{{ i }}092025">{{ i }}</a></li>
+                <li><button {{ stimulus_action('dropdown', 'selectDate') }} data-id="#date-{{ i }}092025">{{ i }}</button></li>
             {% endfor %}
         </ul>
     </div>
@@ -41,7 +41,7 @@
                     <p class="text-base/4">Une soirée d'ouverture sous le signe de l'improvisation et du bruit, où l'accident est maitre et la collision créatrice. Intensité et sensations fortes garanties.</p>
                     <p class="text-xl text-right">🌶🌶🌶</p>
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 19092025,
                             slug: '19092025-jerome-noetinger-lionel-fernandez',
@@ -84,7 +84,7 @@
                     <p class="text-base/4">Onirisme numérique et crépitements de processeurs.</p>
                     <p class="text-xl text-right">🌶</p>
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 20092025,
                             slug: '20092025-oval',
@@ -121,7 +121,7 @@
                         <span class="strikethrough relative">🌶</span>
                     </p>
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 21092025,
                             slug: '21092025-julia-hanadi-al-abed',
@@ -170,7 +170,7 @@
                 {% block address %}29 rue Fernand Marin, 33000 Bordeaux{% endblock %}
                 {% block content %}
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 24092025,
                             slug: '24092025-cie-jeanne-simone',
@@ -196,7 +196,7 @@
                 {% block address %}181 rue François Boucher, 33400 Talence{% endblock %}
                 {% block content %}
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 25092025,
                             slug: '25092025-aragnes',
@@ -223,7 +223,7 @@
                     <p class="text-base/4">Rebonds dans l'espace, des sons qui se baladent d'une enceinte à l'autre, et décrivent des formes que l'on a encore jamais entendues. La musique électroacoustique dans tous ses états.</p>
                     <p class="text-xl text-right">🌶🌶</p>
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 26092025,
                             slug: '26092025-asso-octandre',
@@ -231,7 +231,7 @@
                             genres: ['diffusions acousmatiques'],
                             country: 'Bordeaux'
                         } %}
-                        <ul class="line-up space-y-2">
+                        <ul role="list" class="line-up space-y-2">
                             {% include 'page/festival/lineup/listitem.html.twig' with {
                                 id: 26092025,
                                 slug: '26092025-augustin-braud',
@@ -253,7 +253,7 @@
                     <p class="text-base/4">Retour aux sources primitives de la musique, le bois qui résonne, la voix qui vrille, la ronde infinie. Avant-folk, drone et musique traditionnelles revisitées pour clôturer le festival.</p>
                     <p class="text-xl text-right">🌶</p>
                     <div class="border-t-1 border-dashed"></div>
-                    <ul class="line-up space-y-2">
+                    <ul role="list" class="line-up space-y-2">
                         {% include 'page/festival/lineup/listitem.html.twig' with {
                             id: 27092025,
                             slug: '27092025-begayer',
