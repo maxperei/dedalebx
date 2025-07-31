@@ -1,3 +1,119 @@
 {% extends 'page/index.html.twig' %}
 
 {% block heading %}Billeterie{% endblock %}
+
+{% block content %}
+    <section {{ stimulus_controller('ticket') }}>
+        <div role="tablist" class="tabs tabs-lift">
+            <button
+                role="tab"
+                class="tab tab-active"
+                id="pass"
+                {{ stimulus_action('ticket', 'revealList') }}
+            >Pass festival</button>
+            <button
+                role="tab"
+                class="tab"
+                id="unit"
+                {{ stimulus_action('ticket', 'revealList') }}
+            >Entrée unique</button>
+        </div>
+        <ul role="list" class="list shadow-md bg-base-100 border-x-1 border-x-base-300" {{ stimulus_target('ticket', 'pass') }}>
+            {% embed 'page/biletterie/_listitem.html.twig' %}
+                {% block title %}Pass 2 jours{% endblock %}
+                {% block venue %}19/20 septembre{% endblock %}
+                {% block paf %}20€{% endblock %}
+                {% block content %}
+                    <p class="text-sm/4 my-2">Ce pass vous donne l'accès aux deux soirées suivantes :</p>
+                    <div class="text-xs font-expanded">Vendredi 19 septembre • Café pompier</div>
+                    <div class="text-xs font-expanded">7 place pierre renaudel, Bordeaux</div>
+                    <div class="text-xs font-expanded">20h-00h</div>
+                    <p class="text-sm/4">• Jérôme Noetinger x Lionel Fernandez (noise) • bretagne/isère <br></p>
+                    <p class="text-sm/4">• Arnaud Rivière (harsh noise) • paris <br></p>
+                    <p class="text-sm/4">• Rühland + Michel Doneda (Rock expé/free impro) • bordeaux/dordogne <br></p>
+                    <p class="text-sm/4">• Le trou noir (free rock) • bordeaux</p>
+                    <div class="border-t-1 border-dashed my-2"></div>
+                    <div class="text-xs font-expanded">Samedi 20 septembre • Cumulus</div>
+                    <div class="text-xs font-expanded">163 rue Emile Combes, Floirac</div>
+                    <div class="text-xs font-expanded">20h-00h</div>
+                    <p class="text-sm/4">• Oval (glitch pioneer) • berlin</p>
+                    <p class="text-sm/4">• Tojiko Noriko (ambient/glitch pop) • japon</p>
+                    <p class="text-sm/4">• Yvanko (algorithmic music) • bordeaux</p>
+                {% endblock %}
+                {% block link %}https://www.helloasso.com/associations/dedale-experimental-music/evenements/pass-2-jours-dedale-festival{% endblock %}
+            {% endembed %}
+            {% embed 'page/biletterie/_listitem.html.twig' %}
+                {% block title %}Pass 3 jours{% endblock %}
+                {% block venue %}19/20/27 septembre{% endblock %}
+                {% block paf %}26€{% endblock %}
+                {% block content %}
+                    <p class="text-sm/4 my-2">Ce pass vous donne l'accès aux trois soirées suivantes :</p>
+                    <div class="text-xs font-expanded">Vendredi 19 septembre • Café pompier</div>
+                    <div class="text-xs font-expanded">7 place pierre renaudel, Bordeaux</div>
+                    <div class="text-xs font-expanded">20h-00h</div>
+                    <p class="text-sm/4">• Jérôme Noetinger x Lionel Fernandez (noise) • bretagne/isère <br></p>
+                    <p class="text-sm/4">• Arnaud Rivière (harsh noise) • paris <br></p>
+                    <p class="text-sm/4">• Rühland + Michel Doneda (Rock expé/free impro) • bordeaux/dordogne <br></p>
+                    <p class="text-sm/4">• Le trou noir (free rock) • bordeaux</p>
+                    <div class="border-t-1 border-dashed my-2"></div>
+                    <div class="text-xs font-expanded">Samedi 20 septembre • Cumulus</div>
+                    <div class="text-xs font-expanded">163 rue Emile Combes, Floirac</div>
+                    <div class="text-xs font-expanded">20h-00h</div>
+                    <p class="text-sm/4">• Oval (glitch pioneer) • berlin</p>
+                    <p class="text-sm/4">• Tojiko Noriko (ambient/glitch pop) - japon</p>
+                    <p class="text-sm/4">• Yvanko (algorithmic music) - bordeaux</p>
+                    <div class="border-t-1 border-dashed my-2"></div>
+                    <div class="text-xs font-expanded">Samedi 27 septembre • Les vivres de l'art</div>
+                    <div class="text-xs font-expanded">4 Rue Achard, Bordeaux</div>
+                    <div class="text-xs font-expanded">20h-00h</div>
+                    <p class="text-sm/4">• Bégayer (avant-folk) • france</p>
+                    <p class="text-sm/4">• Desailly/Guionnet/Busolini (drone/impro) • france</p>
+                    <p class="text-sm/4">• Ventre bleu (drone trad) • bordeaux</p>
+                {% endblock %}
+                {% block link %}https://www.helloasso.com/associations/dedale-experimental-music/evenements/billeterie-dedale-festival{% endblock %}
+            {% endembed %}
+        </ul>
+        <ul role="list" class="list shadow-md bg-base-100 border-x-1 border-x-base-300 hidden" {{ stimulus_target('ticket', 'unit') }}>
+            {% embed 'page/biletterie/_listitem.html.twig' %}
+                {% block title %}Jour #1{% endblock %}
+                {% block venue %}Vendredi 19 septembre • Café pompier{% endblock %}
+                {% block address %}7 place pierre renaudel, Bordeau{% endblock %}
+                {% block time %}20h-00h{% endblock %}
+                {% block paf %}10€{% endblock %}
+                {% block content %}
+                    <p class="text-sm/4">• Jérôme Noetinger x Lionel Fernandez (noise) • bretagne/isère</p>
+                    <p class="text-sm/4">• Arnaud Rivière (harsh noise) • paris</p>
+                    <p class="text-sm/4">• Rühland + Michel Doneda (Rock expé/free impro) • bordeaux/dordogne</p>
+                    <p class="text-sm/4">• Le trou noir (free rock) • bordeaux</p>
+                {% endblock %}
+                {% block link %}https://www.helloasso.com/associations/dedale-experimental-music/evenements/jour-1-dedale-festival{% endblock %}
+            {% endembed %}
+            {% embed 'page/biletterie/_listitem.html.twig' %}
+                {% block title %}Jour #2{% endblock %}
+                {% block venue %}Samedi 20 septembre • Cumulus{% endblock %}
+                {% block address %}163 rue Emile Combes, Floirac{% endblock %}
+                {% block time %}20h-00h{% endblock %}
+                {% block paf %}12€{% endblock %}
+                {% block content %}
+                    • Oval (glitch pioneer) • berlin<br>
+                    • Tojiko Noriko (ambient/glitch pop) • japon<br>
+                    • Yvanko (algorithmic music) • bordeaux
+                {% endblock %}
+                {% block link %}https://www.helloasso.com/associations/dedale-experimental-music/evenements/jour-2-dedale-festival-samedi-20-septembre-cumulus-floirac{% endblock %}
+            {% endembed %}
+            {% embed 'page/biletterie/_listitem.html.twig' %}
+                {% block title %}Jour #9{% endblock %}
+                {% block venue %}Samedi 27 septembre • Les vivres de l'art{% endblock %}
+                {% block address %}4 Rue Achard, Bordeaux{% endblock %}
+                {% block time %}20h-00h{% endblock %}
+                {% block paf %}8€{% endblock %}
+                {% block content %}
+                    • Bégayer (avant-folk) • france <br>
+                    • Desailly/Guionnet/Busolini (drone/impro) • france <br>
+                    • Ventre bleu (drone trad) • bordeaux
+                {% endblock %}
+                {% block link %}https://www.helloasso.com/associations/dedale-experimental-music/evenements/jour-9-dedale-festival-samedi-27-septembre-les-vivres-de-l-art{% endblock %}
+            {% endembed %}
+        </ul>
+    </section>
+{% endblock %}

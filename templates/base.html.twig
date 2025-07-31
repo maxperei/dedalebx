@@ -11,7 +11,7 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="min-h-screen grid grid-cols-12 gap-4">
+<body class="min-h-screen grid grid-cols-12 gap-4" {{ stimulus_controller('scroller') }}>
     {% block header %}
         <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3">
             <div class="drawer">
@@ -59,12 +59,12 @@
                 </div>
             </section>
         </main>
-        <aside class="w-[320px] lg:w-1/3 absolute right-0 opacity-55 md:opacity-95 z-0">
-                {% block maze %}
-                    <header class="h-screen relative overflow-y-auto">
-                        <img src="{{ asset('images/maze-animated.svg') }}" alt="" role="presentation">
-                    </header>
-                {% endblock %}
+        <aside class="w-[320px] lg:w-1/3 fixed right-0 opacity-55 md:opacity-95 z-0" {{ stimulus_target('scroller', 'maze') }}>
+            {% block maze %}
+                <header class="h-screen relative overflow-y-auto">
+                    <img src="{{ asset('images/maze-animated.svg') }}" alt="" role="presentation">
+                </header>
+            {% endblock %}
             {% block aside %}{% endblock %}
         </aside>
     {% endblock %}

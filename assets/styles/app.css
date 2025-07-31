@@ -47,8 +47,8 @@ body {
 
 @media screen and (min-width: 48rem) {
     body {
-        background: var(--color-black) url("../images/background-rotate.jpg");
-        background-size: cover;
+        background: var(--color-black) url("../images/background-rotate.jpg") repeat;
+        background-size: 100%;
     }
 }
 
@@ -89,4 +89,14 @@ nav[role="navigation"] li:hover a {
     border-top: 2px solid;
     border-color: inherit;
     transform: rotate(-30deg);
+}
+
+.list {
+    & > :not(:last-child) {
+        &.list-row, .list-row {
+            &:after {
+                border-bottom: var(--border) dashed var(--color-base-300);
+            }
+        }
+    }
 }
