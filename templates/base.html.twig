@@ -13,11 +13,11 @@
 </head>
 <body class="min-h-screen grid grid-cols-12 gap-4" {{ stimulus_controller('scroller') }}>
     {% block header %}
-        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3">
+        <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3 lg:sticky lg:top-16 lg:h-0">
             <div class="drawer">
                 <input id="main-menu" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content z-1">
-                    <div class="flex items-start justify-between lg:block lg:mb-12">
+                    <div class="flex items-start justify-between lg:block lg:mb-8">
                         {% include '_logo.html.twig' %}
                         <label for="main-menu" class="lg:hidden btn bg-black cursor-pointer border-1 border-dashed border-white hover:border-transparent p-2">
                             <span class="font-expanded text-base">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="drawer-side z-2">
                     <label for="main-menu" aria-label="close sidebar" class="drawer-overlay"></label>
-                    <nav role="navigation" class="bg-base-100 min-h-full p-6">
+                    <nav role="navigation" class="bg-base-100 min-h-full max-w-[320px] p-6">
                         <div class="mb-12">
                             {% include '_logo.html.twig' %}
                         </div>

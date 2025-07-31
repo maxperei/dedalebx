@@ -65,7 +65,7 @@ nav[role="navigation"] li a {
     font-size: var(--text-xl);
 }
 
-nav[role="navigation"] li:hover a {
+nav[role="navigation"] li:not(.partners):hover a {
     outline: 1px dashed var(--color-white);
     outline-offset: 4px;
     bottom: 2px;
