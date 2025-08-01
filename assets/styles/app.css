@@ -41,7 +41,6 @@
 body {
     font-family: var(--font-sans), sans-serif;
     color: var(--color-white);
-    background: var(--color-black) url("../images/background.jpg") repeat;
     background-size: 100%;
 }
 
@@ -50,6 +49,10 @@ body {
         background: var(--color-black) url("../images/background-rotate.jpg") repeat;
         background-size: 100%;
     }
+}
+
+body.home {
+    background: none;
 }
 
 header {

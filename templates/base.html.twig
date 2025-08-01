@@ -11,7 +11,7 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="min-h-screen grid grid-cols-12 gap-4" {{ stimulus_controller('scroller') }}>
+<body class="min-h-screen grid grid-cols-12 gap-4 {% block bodyClass %}{% endblock %}" {{ stimulus_controller('scroller') }}>
     {% block header %}
         <header role="banner" class="col-span-12 lg:col-span-3 m-6 mb-0 lg:m-16 mr-3 lg:sticky lg:top-16 lg:h-0">
             <div class="drawer">
@@ -49,17 +49,19 @@
         <main class="col-span-12 md:col-span-8 lg:col-span-6" tabindex="-1">
             <section class="m-4 lg:m-6 mb-0 lg:m-16 lg:ml-4">
                 <div id="main-content" class="z-1 relative">
-                    <h1 class="font-expanded break-all text-4xl lg:text-6xl lg:pt-17 pb-3">
-                        {% block heading %}{% endblock %}
-                    </h1>
-                    <h2 class="font-mono text-xl pb-12">
-                        {% block subheading %}{% endblock %}
-                    </h2>
-                    {% block content %}{% endblock %}
+                    {% block inner %}
+                        <h1 class="font-expanded break-all text-4xl lg:text-6xl lg:pt-17 pb-3">
+                            {% block heading %}{% endblock %}
+                        </h1>
+                        <h2 class="font-mono text-xl pb-12">
+                            {% block subheading %}{% endblock %}
+                        </h2>
+                        {% block content %}{% endblock %}
+                    {% endblock %}
                 </div>
             </section>
         </main>
-        <aside class="w-[320px] lg:w-1/3 fixed right-0 opacity-55 md:opacity-95 z-0" {{ stimulus_target('scroller', 'maze') }}>
+        <aside class="w-2/3 fixed right-0 opacity-75 z-0" {{ stimulus_target('scroller', 'maze') }}>
             {% block maze %}
                 <header class="h-screen relative overflow-y-auto">
                     <img src="{{ asset('images/maze-animated.svg') }}" alt="" role="presentation">
