@@ -5,7 +5,18 @@
 {% block subheading %}\\Prochainement//{% endblock %}
 
 {% block content %}
-    <div class="border-1 border-dashed">
-        <img src="{{ asset('images/affiche.webp') }}" alt="Affiche complète festival dédale du 19 au 27 septembre 2025" class="w-full h-full">
+    <div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;">
+        <iframe
+            class="embed-player slide-media hero__video-media mix-blend-difference"
+            src="https://youtube.com/embed/4Hvn6AarSzs?autoplay=1&amp;mute=1&amp;loop=1&amp;color=white&amp;controls=1&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1&amp;"
+            width="100%" height="100%" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="" title="YouTube" loading="lazy"
+        ></iframe>
+    </div>
+    <div class="border-1 border-dashed mt-3">
+        <a href="{{ path('app_page_index', {id: 'festival'}) }}">
+            <img src="{{ asset('images/affiche.webp') }}" alt="Affiche complète festival dédale du 19 au 27 septembre 2025" class="w-full h-full">
+        </a>
     </div>
 {% endblock %}
