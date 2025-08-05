@@ -1,7 +1,8 @@
-{% set img = '<img loading="lazy" src="' ~ asset('images/augustin-braud.jpg') ~ '" alt="Portrait d\'Augustin Braud">' %}
+{% set img = '<img loading="lazy" src="' ~ asset('images/augustin-braud-paulus-van-dorsten.jpg') ~ '" alt="Augustin Braud en live photographié par Paulus van Dorsten">' %}
 {% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=654767597/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
 {% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=1547335064/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
 {% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=2073193879/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="Augustin Braud 30/04/24 Paris, Souffle Continu record store" width="100%" height="100%" src="https://www.youtube.com/embed/aM59QvI0gKs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
 
 <article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
     <picture {{ stimulus_target('listen', 'area') }}>
@@ -10,6 +11,8 @@
     <div class="mt-3 flex gap-4 flex-wrap">
         <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
         <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ bc }}">Bandcamp</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ yt }}">YouTube</button>
+        <a class="btn btn-player hidden" href="https://soundcloud.com/augustinbraud" target="_blank">Soundcloud &nearr;</a>
     </div>
     <div class="mt-3 flex gap-4 flex-wrap">
         <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Site web</button>
@@ -17,5 +20,9 @@
     </div>
     <div class="my-6">
         <h3 class="font-mono text-base">Augustin Braud</h3>
+    </div>
+    <div class="space-y-4 text-base">
+        <p>Augustin est compositeur, musicien et chercheur. Musicologue permanent au sein du RicercarLab de Tours (CESR), sa pratique s’étend de la musique instrumentale écrite à des performances électroacoustiques telles que Trônes Amoncelés, une pièce de 36 minutes publiée sur le label Opal Tapes en Mars 2025, inspirée par Les dix-huit secondes d'Antonin Artaud.</p>
+        <p>Il est également lauréat du prix Claude Arrieu 2020 de la SACEM, et a collaboré avec des ensembles tels que l'Orchestre Philharmonique de Radio France, l'Ensemble Intercontemporain et le Klangforum Wien (GOLEM), dans des festivals tels que ECLAT, Gaudeamus, Musica et Présences.</p>
     </div>
 </article>

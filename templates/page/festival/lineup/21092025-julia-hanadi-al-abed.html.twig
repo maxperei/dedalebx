@@ -1,7 +1,8 @@
-{% set img = '<img loading="lazy" src="' ~ asset('images/julia-hanadi-al-abed.jpg') ~ '" alt="Julia Hanadi Al Abed en live">' %}
+{% set img = '<img loading="lazy" src="' ~ asset('images/julia-hanadi-al-abed-julien-gremaud.jpg') ~ '" alt="Julia Hanadi Al Abed en live photographiée par Julien Gremaud">' %}
 {% set bc = '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=3731304379/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
 {% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=2239762131/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
 {% set bc = bc ~ '<div style="left: 0; max-width: 700px; width: 100%; height: 120px; position: relative;"><iframe src="https://bandcamp.com/EmbeddedPlayer/album=3023091114/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>' %}
+{% set yt = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe title="Julia Hanadi Al Abed 24/02/22 Paris, Elysée Montmartre" width="100%" height="100%" src="https://www.youtube.com/embed/uWkLl1Nmt-s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div>' %}
 {% set ina = '<div style="left: 0; width: 100%; aspect-ratio: 16 / 9; position: relative;"><iframe frameborder="0" marginheight="0" marginwidth="0"  scrolling="no" src="https://fresques.ina.fr/artsonores/export/player/InaGrm01137/wide?isAmalia=1" width="100%" height="100%" allowfullscreen></iframe></div>' %}
 
 <article {{ stimulus_controller('listen', {img: img|json_encode}) }} class="m-4 lg:m-8">
@@ -11,8 +12,10 @@
     <div class="mt-3 flex gap-4 flex-wrap">
         <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Écouter</button>
         <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ bc }}">Bandcamp</button>
+        <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ yt }}">YouTube</button>
         <button class="btn btn-player hidden [.btn-active]:border-white [.btn-active]:border-1 [.btn-active]:border-dashed" {{ stimulus_action('listen', 'revealPlayer') }} data-embed="{{ ina }}">Ina</button>
         <a class="btn btn-player hidden" href="https://juliahanadialabed.bandcamp.com/" target="_blank">Bandcamp &nearr;</a>
+        <a class="btn btn-player hidden" href="https://on.soundcloud.com/gVeSBglFnaxm6MZC5g" target="_blank">Soundcloud &nearr;</a>
     </div>
     <div class="mt-3 flex gap-4 flex-wrap">
         <button class="btn btn-soft" {{ stimulus_action('listen', 'toggleBtns') }}>Site web</button>
@@ -24,5 +27,8 @@
             <span class="font-expanded font-base">Label :</span>
             <a href="https://www.larepubliquedesgranges.org" target="_blank" class="link">La République des Granges &nearr;</a>
         </h3>
+        <div class="space-y-4 text-base">
+            <p>Live electronic pour les végétaux et la Garonne qui les abreuve.</p>
+        </div>
     </div>
 </article>
