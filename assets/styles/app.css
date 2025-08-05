@@ -76,11 +76,11 @@ nav[role="navigation"] li:not(.partners):hover a {
 }
 
 #main-content p:first-letter,
-#main-content .line-up article p:first-letter {
+#main-content .lineup article p:first-letter {
     font-family: var(--font-mono), monospace;
 }
 
-#main-content .line-up p:first-letter {
+#main-content .lineup p:first-letter {
     font-family: var(--font-sans), sans-serif;
 }
 

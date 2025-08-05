@@ -3,6 +3,15 @@ import { Controller } from '@hotwired/stimulus';
 export default class extends Controller {
   static targets = ['stack', 'intro'];
 
+  connect() {
+    const queryParams = new URLSearchParams(document.location.search);
+    if (!queryParams.has('date')) {
+      return;
+    }
+    const e = {detail: {id: `#date-${queryParams.get('date')}`}};
+    this.revealCard(e);
+  }
+
   resetIntro(e) {
     this.introTarget.classList.remove('hidden');
     this.stackTarget.classList.add('hidden');

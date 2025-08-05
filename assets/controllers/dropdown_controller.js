@@ -6,17 +6,37 @@ export default class extends Controller {
     startDate: String,
   }
 
+  connect() {
+    const queryParams = new URLSearchParams(document.location.search);
+    if (!queryParams.has('date')) {
+      return;
+    }
+    const btn = this.element.querySelector(`button[data-date="${queryParams.get('date')}"]`);
+    btn.dispatchEvent(new CustomEvent('click'));
+  }
+
   reset(e) {
     this._handleMenuActive(e);
     this.dateTarget.innerHTML = this.startDateValue;
     this.dispatch('reset')
+    const url = new URL(window.location.href);
+    url.searchParams.delete('date');
+    history.pushState({},'', url);
   }
+
   selectDate(e) {
     this._handleMenuActive(e);
+    this._pushQueryParams(e.target.dataset);
     this.dateTarget.innerHTML = e.target.innerHTML;
-    const id = e.target.getAttribute('data-id');
+  }
+
+  _pushQueryParams({id, date}) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('date', date);
+    history.pushState({},'', url);
     this.dispatch('changed', {detail: {id: id}})
   }
+
   _handleMenuActive(e) {
     const currentMenuActive = this.element.querySelector('.menu-active');
     if (currentMenuActive) {

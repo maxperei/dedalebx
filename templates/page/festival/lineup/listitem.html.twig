@@ -1,5 +1,5 @@
 {% if id is defined and id is not null %}
-    <li role="listitem" {{ stimulus_action('line-up', 'revealDrawer', 'click') }}>
+    <li role="listitem" {{ stimulus_action('lineup', 'revealDrawer', 'click') }}>
         <label for="lineup-{{ id }}" class="drawer-button font-mono text-xs">
             {% if slug is defined %}
                 <a
