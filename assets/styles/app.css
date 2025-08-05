@@ -39,6 +39,7 @@
 }
 
 body {
+    background: var(--color-black) url("../images/background.jpg") repeat;
     font-family: var(--font-sans), sans-serif;
     color: var(--color-white);
     background-size: 100%;
