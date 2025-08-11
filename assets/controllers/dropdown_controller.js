@@ -30,6 +30,10 @@ export default class extends Controller {
     this.dateTarget.innerHTML = e.target.innerHTML;
   }
 
+  open() {
+    this.btnTarget.focus();
+  }
+
   _pushQueryParams({id, date}) {
     const url = new URL(window.location.href);
     url.searchParams.set('date', date);

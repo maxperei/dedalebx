@@ -30,4 +30,8 @@ export default class extends Controller {
     }
     this.element.querySelector('#' + e.currentTarget.querySelector('label').getAttribute('for')).checked = true;
   }
+
+  start() {
+    this.dispatch('start');
+  }
 }

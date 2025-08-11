@@ -5,7 +5,12 @@
 {% block subheading %}
     du
     <div class="dropdown" {{ stimulus_controller('dropdown', {startDate: '19'}) }}>
-        <div tabindex="0" class="btn btn-dash flex border-1 border-dashed cursor-pointer hover:bg-black hover:border-transparent m-1 p-2 items-center" {{ stimulus_target('dropdown', 'btn') }}>
+        <div
+            tabindex="0"
+            class="btn btn-dash flex border-1 border-dashed cursor-pointer hover:bg-black hover:border-transparent m-1 p-2 items-center"
+            {{ stimulus_target('dropdown', 'btn') }}
+            data-action="lineup:start@window->dropdown#open"
+        >
             <span {{ stimulus_target('dropdown', 'date') }}>19</span>
             <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5">
                 <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd"></path>
@@ -28,7 +33,17 @@
             <p class="text-lg/6 md:text-base/4">Réunissant une ribambelle d'artistes d'ici et d'ailleurs, d'associations et de lieux avec qui nous avons déjà collaboré, le dédale festival cherche à faire sortir l'underground de sa niche...</p>
             <p class="text-lg/6 md:text-base/4">Au programme cinq concerts, chacun dédié à une esthétique particulière (noise, glitch, ambient, electroacoustic, post-trad), ainsi que quatre rendez-vous autour d'autres médiums : danse improvisée, cinéma expérimental, installations sonores, performances.</p>
             <p class="text-lg/6 md:text-base/4">Sur neuf jours les explorations soniques et performances avant-gardistes seront le contrepoint de votre train-train quotidien. Un carambolage entre les arts en bonne et due forme, pour venir titiller certaines zones encore inconnues de votre sensibilité.</p>
-            <p class="text-lg/6 md:text-base/4">Chaque évènement sera disséminé à travers la ville, et fera vibrer un recoin du dédale... alors vous venez vous y perdre ?</p>
+            <p class="text-lg/6 md:text-base/4">Chaque évènement sera disséminé à travers la ville, et fera vibrer un recoin du dédale...</p>
+            <p class="mt-16">
+                <button
+                    class="btn btn-dash font-mono text-xs flex border-1 border-dashed cursor-pointer hover:bg-black hover:border-transparent m-1 p-2 items-center"
+                    type="button"
+                    tabindex="0"
+                    {{ stimulus_action('lineup', 'start') }}
+                >
+                    Alors vous venez vous y perdre ?
+                </button>
+            </p>
         </div>
         <div class="stack stack-start space-y-8 hidden" {{ stimulus_target('lineup', 'stack') }}>
             {% embed 'page/festival/lineup.html.twig' with {id: 19092025} %}
