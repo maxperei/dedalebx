@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Dédale • Bordeaux • Musique expérimentale & arts déviants{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    {% block stylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body class="h-screen">
+<div class="grid grid-cols-12 gap-4">
+    {% block header %}
+        <header role="banner" class="col-span-3 m-16 mr-0">
+            <div class="mb-12">
+                <a href="{{ path('home') }}">
+                    <img
+                        src="{{ asset('images/logo.png') }}"
+                        class="max-w-[290px]"
+                        alt="Logo dédale en écriture manuscrite"
+                    />
+                    <small class="text-sm whitespace-nowrap">Musique expérimentale <br>& arts déviants</small>
+                </a>
+            </div>
+            <nav>
+                <ul class="flex flex-col space-y-6">
+                    <li role="menuitem">
+                        <a class="flex items-baseline w-[fit-content]" href="{{ path('page', {'id': 'festival'}) }}">
+                            <img
+                                src="{{ asset('images/logo.png') }}"
+                                class="max-w-[100px]"
+                                alt="Menu dédale festival"
+                            />
+                            <span class="font-expanded ml-2">Festival</span>
+                        </a>
+                    </li>
+                    <li role="menuitem">
+                        <a href="{{ path('page', {'id': 'billeterie'}) }}">Billeterie</a>
+                    </li>
+                    <li role="menuitem">
+                        <a href="{{ path('page', {'id': 'prog'}) }}">Programmation</a>
+                    </li>
+                    <li role="menuitem">
+                        <a href="{{ path('page', {'id': 'archive'}) }}">Archives</a>
+                    </li>
+                    <li role="menuitem">
+                        <a href="{{ path('page', {'id': 'contact'}) }}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    {% endblock %}
+    {% block body %}
+        <main class="col-span-6 relative">
+            {% block main %}{% endblock %}
+        </main>
+        <aside class="w-1/3 min-h-screen min-w-[320px] absolute z-[-1] right-0">
+            <header class="h-full relative">
+                {% block maze %}
+                    <img class="h-full" src="{{ asset('images/maze-animated.svg') }}" alt="">
+                {% endblock %}
+            </header>
+            {% block aside %}{% endblock %}
+        </aside>
+    {% endblock %}
+</div>
+</body>
+</html>
